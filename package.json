@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "lean-startup-canvas",
   "private": true,
   "scripts": {
     "build": "nuxt build",
