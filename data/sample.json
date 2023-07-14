@@ -1,0 +1,59 @@
+{
+  "title": "Setsquare BBS MVNO Billing System",
+  "sections": [
+    {
+      "id": 1,
+      "title": "Problems",
+      "description": "list customers top 3 problems to solve in the production",
+      "items": ["can not determine the architecture", "no one knows about the MSK", "no one knows about the ECS"],
+      "subsection": {
+        "title": "Exsiting Alternatives",
+        "items": ["3rd party billing system solution"]
+      }
+    },
+    {
+      "id": 2,
+      "title": "Solutions",
+      "description": "outline a possible solution for each problem",
+      "items": ["Architecture review", "MSK workshops", "ECS workshops"]
+    },
+    {
+      "id": 3,
+      "title": "Key Metrics",
+      "description": "list the key numbers that tell you how your problem is being solved",
+      "items": ["ECS monitoring metrics", "Kafka monitoring metrics"]
+    },
+    {
+      "id": 4,
+      "title": "Deliverables",
+      "description": "clear message that describe your problem being solved in prototyping engagement",
+      "items": ["Architecture review", "MSK Workshops", "ECS Workshops", "PoC code and walkthrough workshop"],
+      "subsection": {
+        "title": "High level concept",
+        "items": ["event driven billing system using MSK and ECS"]
+      }
+    },
+    {
+      "id": 5,
+      "title": "Business Impact",
+      "description": "list the prospecting changes in the market/business that the deliverables brings in",
+      "items": ["Korea first MVNO billing system using MSK and ECS", "Being a key refrence for other BSS solutions in Setsquare"]
+    },
+    {
+      "id": 6,
+      "title": "Launch Plan",
+      "description": "launch date and responsibility and role of the production system",
+      "items": ["📅 2023-10-23", "Build: Hired SI developers", "Ops: SM Operators"]
+    },
+    {
+      "id": 7,
+      "title": "Personas",
+      "description": "list your end-users that involved to the target system",
+      "items": ["IPMD System", "SM Operators", "3rd party vendors"],
+      "subsection": {
+        "title": "Participants",
+        "items": ["SM Operators", "Hired SI developers"]
+      }
+    }
+  ]
+}
