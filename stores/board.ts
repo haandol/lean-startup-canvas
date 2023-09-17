@@ -8,12 +8,14 @@ type Section = {
 type Subsection = Pick<Section, 'title' | 'items'>
 type Board = {
   dirty?: boolean
+  isEmpty?: boolean
   title: string
   sections: Section[]
 }
 
 const emptyBoard: Board = {
   dirty: false,
+  isEmpty: true,
   title: 'Untitled',
   sections: [
     {
@@ -78,15 +80,28 @@ export const useBoardStore = defineStore(
   () => {
     const board = ref<Board>(emptyBoard)
 
-    function initBoard() {
+    function init() {
       board.value = emptyBoard
     }
 
-    function updateBoardTitle(title: string) {
-      board.value.title = title
+    function fromJSON(json?: string) {
+      if (!json) {
+        console.error('no json data')
+        return
+      }
+
+      try {
+        const data = JSON.parse(json)
+        init()
+        board.value = data
+        board.value.dirty = false
+      } catch (err) {
+        console.error(err)
+        alert('failed to parse JSON')
+      }
     }
 
-    async function fetchBoard(key: string) {
+    async function fetch(key: string) {
       const { data } = await useFetch<{ data: Board }>('/api/loader', {
         query: { key },
       })
@@ -98,7 +113,11 @@ export const useBoardStore = defineStore(
       board.value.dirty = false
     }
 
-    return { board, initBoard, fetchBoard, updateBoardTitle }
+    function updateTitle(title: string) {
+      board.value.title = title
+    }
+
+    return { board, init, fetch, fromJSON, updateTitle }
   },
   { persist: true }
 )

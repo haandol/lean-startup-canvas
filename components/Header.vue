@@ -6,7 +6,7 @@
       </NuxtLink>
     </div>
     <ul class="flex gap-2">
-      <li v-if="!!route.params.id">
+      <li v-if="!board.isEmpty">
         <button class="primary" @click="onExport">Export</button>
       </li>
       <li>
@@ -25,9 +25,12 @@
 
 <script setup lang="ts">
 import { saveAs } from 'file-saver';
+import { storeToRefs } from 'pinia';
 
 const route = useRoute();
 const boardStore = useBoardStore();
+
+const { board } = storeToRefs(boardStore)
 
 const onExport = () => {
   saveAs(new Blob([JSON.stringify(boardStore.board, null, 2)], { type: 'application/json' }), `${boardStore.board.title || 'board'}.json`);

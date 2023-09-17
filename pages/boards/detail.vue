@@ -4,8 +4,14 @@
       <header>
         <h1 contenteditable="true" @blur="onBlur">{{ board.title }}</h1>
       </header>
-      <div class="sections grid grid-cols-10 gap-4 grid-rows-2 grid-flow-col-dense">
+      <div v-if="board.title" class="sections grid grid-cols-10 gap-4 grid-rows-2 grid-flow-col-dense">
         <SectionCard v-for="section in board.sections" :section="section" :key="section.id" />
+      </div>
+      <div v-else class="no-board grid grid-cols-1 grid-rows-auto gap-2">
+        <h1 class="justify-self-center">Board not found</h1>
+        <NuxtLink class="justify-self-center" to="/">
+          <button>Back to main</button>
+        </NuxtLink>
       </div>
     </main>
   </div>
@@ -14,20 +20,39 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
 
-const boardStore = useBoardStore();
-boardStore.init();
+const router = useRouter();
 
+const boardStore = useBoardStore();
 const { board } = storeToRefs(boardStore);
 
+router.beforeResolve((to, from, next) => {
+  if (board.value.dirty) {
+    const answer = window.confirm('You have unexported changes. Are you sure you want to leave?');
+    if (answer) {
+      next();
+    } else {
+      next(false);
+    }
+  } else {
+    next();
+  }
+});
+
+window.onbeforeunload = () => {
+  if (board.value.dirty) {
+    return 'You have unexported changes. Are you sure you want to leave?';
+  }
+}
+
 const onBlur = (e: Event) => {
-  const target = e.target as HTMLDivElement;
+  const target = e.target as HTMLInputElement;
   boardStore.updateTitle(target.innerText);
-};
+}
 </script>
 
 <style lang="postcss" scoped>
 main {
-  @apply px-4
+  @apply px-4 pb-4
 }
 
 header h1 {

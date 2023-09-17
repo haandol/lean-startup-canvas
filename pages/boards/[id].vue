@@ -23,7 +23,7 @@ import { storeToRefs } from 'pinia';
 const router = useRouter();
 
 const boardStore = useBoardStore();
-await boardStore.fetchBoard(router.currentRoute.value.params.id as string);
+await boardStore.fetch(router.currentRoute.value.params.id as string);
 
 const { board } = storeToRefs(boardStore);
 
@@ -48,7 +48,7 @@ window.onbeforeunload = () => {
 
 const onBlur = (e: Event) => {
   const target = e.target as HTMLInputElement;
-  boardStore.updateBoardTitle(target.innerText);
+  boardStore.updateTitle(target.innerText);
 }
 </script>
 
