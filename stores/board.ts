@@ -1,19 +1,19 @@
 type Section = {
-  id: number;
-  title: string;
-  description: string;
-  items: string[];
-  subsection?: Subsection;
-};
-type Subsection = Pick<Section, 'title' | 'items'>;
+  id: number
+  title: string
+  description: string
+  items: string[]
+  subsection?: Subsection
+}
+type Subsection = Pick<Section, 'title' | 'items'>
 type Board = {
-  clean?: boolean;
-  title: string;
-  sections: Section[];
-};
+  dirty?: boolean
+  title: string
+  sections: Section[]
+}
 
 const emptyBoard: Board = {
-  clean: true,
+  dirty: false,
   title: 'Untitled',
   sections: [
     {
@@ -35,15 +35,13 @@ const emptyBoard: Board = {
     {
       id: 3,
       title: 'Key Metrics',
-      description:
-        'list the key numbers that tell you how your problem is being solved',
+      description: 'list the key numbers that tell you how your problem is being solved',
       items: [],
     },
     {
       id: 4,
       title: 'Deliverables',
-      description:
-        'clear message that describe your problem being solved in prototyping engagement',
+      description: 'clear message that describe your problem being solved in prototyping engagement',
       items: [],
       subsection: {
         title: 'High level concept',
@@ -53,15 +51,13 @@ const emptyBoard: Board = {
     {
       id: 5,
       title: 'Business Impacts',
-      description:
-        'list the prospecting changes in the market/business that the deliverables brings in',
+      description: 'list the prospecting changes in the market/business that the deliverables brings in',
       items: [],
     },
     {
       id: 6,
       title: 'Launch Plan',
-      description:
-        'launch date and responsibility and role of the production system',
+      description: 'launch date and responsibility and role of the production system',
       items: [],
     },
     {
@@ -75,34 +71,34 @@ const emptyBoard: Board = {
       },
     },
   ],
-};
+}
 
 export const useBoardStore = defineStore(
   'board',
   () => {
-    const board = ref<Board>(emptyBoard);
+    const board = ref<Board>(emptyBoard)
 
     function initBoard() {
-      board.value = emptyBoard;
+      board.value = emptyBoard
     }
 
     function updateBoardTitle(title: string) {
-      board.value.title = title;
+      board.value.title = title
     }
 
     async function fetchBoard(key: string) {
       const { data } = await useFetch<{ data: Board }>('/api/loader', {
         query: { key },
-      });
+      })
       if (data.value === null) {
-        console.error('Error loading board');
-        return;
+        console.error('Error loading board')
+        return
       }
-      board.value = data.value.data;
-      board.value.clean = true;
+      board.value = data.value.data
+      board.value.dirty = false
     }
 
-    return { board, initBoard, fetchBoard, updateBoardTitle };
+    return { board, initBoard, fetchBoard, updateBoardTitle }
   },
   { persist: true }
-);
+)

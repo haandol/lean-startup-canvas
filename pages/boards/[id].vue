@@ -28,7 +28,7 @@ await boardStore.fetchBoard(router.currentRoute.value.params.id as string);
 const { board } = storeToRefs(boardStore);
 
 router.beforeResolve((to, from, next) => {
-  if (!board.value.clean) {
+  if (board.value.dirty) {
     const answer = window.confirm('You have unexported changes. Are you sure you want to leave?');
     if (answer) {
       next();
@@ -41,7 +41,7 @@ router.beforeResolve((to, from, next) => {
 });
 
 window.onbeforeunload = () => {
-  if (!board.value.clean) {
+  if (board.value.dirty) {
     return 'You have unexported changes. Are you sure you want to leave?';
   }
 }

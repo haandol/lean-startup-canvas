@@ -31,7 +31,7 @@ const boardStore = useBoardStore();
 
 const onExport = () => {
   saveAs(new Blob([JSON.stringify(boardStore.board, null, 2)], { type: 'application/json' }), `${boardStore.board.title || 'board'}.json`);
-  boardStore.board.clean = true;
+  boardStore.board.dirty = false;
 }
 </script>
 

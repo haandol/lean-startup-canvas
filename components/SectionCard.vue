@@ -40,14 +40,14 @@ const section = computed(() => {
 });
 
 const onAddItem = () => {
-  board.value.clean = false;
+  board.value.dirty = true;
   if (section.value) {
     section.value.items.push('')
   }
 }
 
 const onUpdateItem = (event: { index: number, value: string }) => {
-  board.value.clean = false;
+  board.value.dirty = true;
   if (section.value) {
     section.value.items[event.index] = event.value;
   }
