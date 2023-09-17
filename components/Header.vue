@@ -6,7 +6,7 @@
       </NuxtLink>
     </div>
     <ul class="flex gap-2">
-      <li>
+      <li v-if="!!route.params.id">
         <button class="primary" @click="onExport">Export</button>
       </li>
       <li>
@@ -25,6 +25,8 @@
 
 <script setup lang="ts">
 import { saveAs } from 'file-saver';
+
+const route = useRoute();
 const boardStore = useBoardStore();
 
 const onExport = () => {
