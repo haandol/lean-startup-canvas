@@ -10,8 +10,8 @@
         <button class="primary" @click="onExport">Export</button>
       </li>
       <li>
-        <NuxtLink to="/boards/upload">
-          <button class="primary">Upload</button>
+        <NuxtLink to="/boards/import">
+          <button class="primary">Import</button>
         </NuxtLink>
       </li>
       <li>
