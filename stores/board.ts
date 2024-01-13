@@ -42,8 +42,8 @@ const emptyBoard: Board = {
     },
     {
       id: 4,
-      title: 'Deliverables',
-      description: 'clear message that describe your problem being solved in the MVP',
+      title: 'Unique Value Proposition',
+      description: 'single, clear, compelling message that turns on unaware visitor into an interested prospect',
       items: [],
       subsection: {
         title: 'High level concept',
@@ -52,23 +52,23 @@ const emptyBoard: Board = {
     },
     {
       id: 5,
-      title: 'Business Impacts',
-      description: 'list the prospecting changes in the market/business that the deliverables brings in',
+      title: 'Unfair Advantage',
+      description: 'something that can not be easily copied or bought',
       items: [],
     },
     {
       id: 6,
-      title: 'Launch Plan',
-      description: 'launch date and responsibility and role of the production system',
+      title: 'Channel',
+      description: 'launch date and list your path to customers',
       items: [],
     },
     {
       id: 7,
-      title: 'Personas',
-      description: 'list your end-users that involved to the target system',
+      title: 'Customer Segments',
+      description: 'list your target customers and users',
       items: [],
       subsection: {
-        title: 'Participants',
+        title: 'Early Adopters',
         items: [],
       },
     },
