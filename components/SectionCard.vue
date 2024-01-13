@@ -14,8 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from 'pinia';
-
 type Section = {
   section: {
     id: number
@@ -29,29 +27,21 @@ type SubSection = {
   title: string
   items: string[]
 }
-
 const props = defineProps<Section>();
 
 const boardStore = useBoardStore();
 const { board } = storeToRefs(boardStore);
 
-const section = computed(() => {
-  return board.value.sections.find((section) => section.id === props.section.id);
-});
-
 const onAddItem = () => {
   board.value.dirty = true;
-  if (section.value) {
-    section.value.items.push('')
+  if (props.section) {
+    props.section.items.push('')
   }
 }
 
 const onUpdateItem = (event: { index: number, value: string }) => {
   board.value.dirty = true;
-  if (section.value) {
-    section.value.items[event.index] = event.value;
-  }
-
+  props.section.items[event.index] = event.value;
 }
 </script>
 

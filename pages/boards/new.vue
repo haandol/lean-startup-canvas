@@ -15,7 +15,6 @@
 import { storeToRefs } from 'pinia';
 
 const boardStore = useBoardStore();
-boardStore.init();
 
 const { board } = storeToRefs(boardStore);
 
@@ -23,11 +22,15 @@ const onBlur = (e: Event) => {
   const target = e.target as HTMLDivElement;
   boardStore.updateTitle(target.innerText);
 };
+
+onMounted(() => {
+  boardStore.init();
+});
 </script>
 
 <style lang="postcss" scoped>
 main {
-  @apply px-4
+  @apply px-4 pb-4
 }
 
 header h1 {

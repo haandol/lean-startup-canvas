@@ -2,11 +2,11 @@
   <nav class="flex justify-between gap-4">
     <div class="logo">
       <NuxtLink to="/">
-        <NuxtImg src="/logo.png" width="180" />
+        <NuxtImg src="/logo.jpg" height="40" />
       </NuxtLink>
     </div>
     <ul class="flex gap-2">
-      <li v-if="!board.isEmpty">
+      <li>
         <button class="primary" @click="onExport">Export</button>
       </li>
       <li>

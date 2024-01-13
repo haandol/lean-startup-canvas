@@ -1,3 +1,5 @@
+import * as _ from 'lodash'
+
 type Section = {
   id: number
   title: string
@@ -8,14 +10,12 @@ type Section = {
 type Subsection = Pick<Section, 'title' | 'items'>
 type Board = {
   dirty?: boolean
-  isEmpty?: boolean
   title: string
   sections: Section[]
 }
 
 const emptyBoard: Board = {
   dirty: false,
-  isEmpty: true,
   title: 'Untitled',
   sections: [
     {
@@ -43,7 +43,7 @@ const emptyBoard: Board = {
     {
       id: 4,
       title: 'Deliverables',
-      description: 'clear message that describe your problem being solved in prototyping engagement',
+      description: 'clear message that describe your problem being solved in the MVP',
       items: [],
       subsection: {
         title: 'High level concept',
@@ -78,10 +78,10 @@ const emptyBoard: Board = {
 export const useBoardStore = defineStore(
   'board',
   () => {
-    const board = ref<Board>(emptyBoard)
+    const board = ref<Board>(_.cloneDeep(emptyBoard))
 
     function init() {
-      board.value = emptyBoard
+      board.value = _.cloneDeep(emptyBoard)
     }
 
     function fromJSON(json?: string) {

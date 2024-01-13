@@ -26,7 +26,7 @@
     {
       "id": 4,
       "title": "Deliverables",
-      "description": "clear message that describe your problem being solved in prototyping engagement",
+      "description": "clear message that describe your problem being solved in the MVP",
       "items": ["Architecture review", "MSK Workshops", "ECS Workshops", "PoC code and walkthrough workshop"],
       "subsection": {
         "title": "High level concept",
