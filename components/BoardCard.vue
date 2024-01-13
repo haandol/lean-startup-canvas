@@ -26,7 +26,7 @@ defineProps<{ board: Board }>()
 }
 
 h3 {
-  @apply mb-2 text-2xl font-bold tracking-tight text-gray-900
+  @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 break-words
 }
 
 p {
