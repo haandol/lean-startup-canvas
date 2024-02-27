@@ -16,16 +16,12 @@ export default defineNuxtConfig({
       publicDir: path.join(__dirname, 'dist'),
     },
   },
-  image: {
-    dir: 'assets/images',
-  },
   css: ['@/assets/css/main.css'],
   imports: {
     dirs: ['stores'],
   },
   modules: [
     '@vueuse/nuxt',
-    '@nuxt/image',
     [
       '@pinia/nuxt',
       {

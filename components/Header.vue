@@ -2,7 +2,13 @@
   <nav class="flex justify-between gap-4">
     <div class="logo">
       <NuxtLink to="/">
-        <NuxtImg src="/images/logo.jpg" height="40" />
+        <div class="flex items-center gap-2">
+          <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 7l10 5 10-5"></path>
+          </svg>
+          <h1 class="text-2xl font-bold">Lean Canvas</h1>
+        </div>
       </NuxtLink>
     </div>
     <ul class="flex gap-2">
