@@ -1,6 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import * as path from 'path'
-
 export default defineNuxtConfig({
   ssr: false,
   app: {

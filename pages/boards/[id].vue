@@ -23,9 +23,12 @@ import { storeToRefs } from 'pinia';
 const router = useRouter();
 
 const boardStore = useBoardStore();
-await boardStore.fetch(router.currentRoute.value.params.id as string);
 
 const { board } = storeToRefs(boardStore);
+
+onMounted(async () => {
+  await boardStore.fetch(router.currentRoute.value.params.id as string);
+});
 
 router.beforeResolve((to, from, next) => {
   if (board.value.dirty) {
