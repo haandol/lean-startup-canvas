@@ -2,7 +2,7 @@
   <nav class="flex justify-between gap-4">
     <div class="logo">
       <NuxtLink to="/">
-        <NuxtImg src="/logo.jpg" height="40" />
+        <NuxtImg src="/images/logo.jpg" height="40" />
       </NuxtLink>
     </div>
     <ul class="flex gap-2">

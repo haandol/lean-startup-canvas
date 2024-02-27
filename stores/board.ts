@@ -1,4 +1,4 @@
-import * as _ from 'lodash'
+import _cloneDeep from 'lodash/cloneDeep'
 
 type Section = {
   id: number
@@ -78,10 +78,10 @@ const emptyBoard: Board = {
 export const useBoardStore = defineStore(
   'board',
   () => {
-    const board = ref<Board>(_.cloneDeep(emptyBoard))
+    const board = ref<Board>(_cloneDeep(emptyBoard))
 
     function init() {
-      board.value = _.cloneDeep(emptyBoard)
+      board.value = _cloneDeep(emptyBoard)
     }
 
     function fromJSON(json?: string) {
