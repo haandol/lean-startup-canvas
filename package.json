@@ -30,6 +30,7 @@
     "@pinia/nuxt": "^0.5.1",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
-    "pinia": "^2.1.7"
+    "pinia": "^2.1.7",
+    "postcss-custom-properties": "^13.3.5"
   }
 }
