@@ -113,7 +113,7 @@ export const useBoardStore = defineStore(
       */
       const data = {
         dirty: true,
-        title: 'ComposeBold-V1',
+        title: 'EncBird-V1',
         sections: [
           {
             id: 1,

@@ -1,7 +1,11 @@
 <template>
   <div>
     <main class="grid grid-cols-6 grid-rows-auto gap-4">
-      <BoardCard v-for="board in boards" :board="board" :key="board.id" />
+      <BoardCard
+        v-for="board in boards"
+        :board="board"
+        :key="board.id"
+      />
     </main>
   </div>
 </template>
@@ -10,15 +14,15 @@
 const boards = [
   {
     id: 'sample',
-    title: 'ComposeBold-V1',
-    description: '직장인이 쉽게 어휘력을 키울 수 있는 앱'
+    title: 'EncBird-V1',
+    description: '직장인이 쉽게 어휘력을 키울 수 있는 앱',
   },
-];
+]
 </script>
 
 <style lang="postcss" scoped>
 main {
-  @apply p-4
+  @apply p-4;
 }
 
 @media only screen and (max-width: 768px) {
