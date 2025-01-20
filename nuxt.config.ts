@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
+
   app: {
     head: {
       title: 'Lean Startup Canvas',
@@ -8,10 +9,13 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
     },
   },
+
   css: ['@/assets/css/main.css'],
+
   imports: {
     dirs: ['stores'],
   },
+
   modules: [
     '@vueuse/nuxt',
     [
@@ -23,6 +27,7 @@ export default defineNuxtConfig({
     '@pinia-plugin-persistedstate/nuxt',
     '@nuxtjs/tailwindcss',
   ],
+
   postcss: {
     plugins: {
       'postcss-import': {},
@@ -31,4 +36,6 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+
+  compatibilityDate: '2025-01-17',
 })
