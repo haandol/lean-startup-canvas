@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         autoImports: ['defineStore', 'definePiniaStore', 'acceptHMRUpdate'],
       },
     ],
-    '@pinia-plugin-persistedstate/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
     '@nuxtjs/tailwindcss',
   ],
 
